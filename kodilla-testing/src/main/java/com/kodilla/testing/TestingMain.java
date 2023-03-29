@@ -18,8 +18,13 @@ public class TestingMain {
         }
         System.out.println("Test - pierwszy test jednostkowy:");
         Calculator c = new Calculator();
-        System.out.println(c.add(2,4));
-        System.out.println(c.subtract(5, 3));
+        int addResult = c.add(180, 19);
+        int subtractResult = c.subtract(200, 150);
+        if (addResult == 199 && subtractResult == 50) {
+            System.out.println("Calculator test OK");
+        } else {
+            System.out.println("Calculator has error!");
+        }
 
     }
 }
