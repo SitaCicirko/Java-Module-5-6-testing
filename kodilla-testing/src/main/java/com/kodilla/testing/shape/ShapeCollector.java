@@ -12,10 +12,10 @@ public class ShapeCollector {
         return (n >= 0 && n < shapes.size()) ? shapes.get(n) : null;
     }
     String showFigures(){
-        String result = " ";
+        StringBuilder sb = new StringBuilder();
         for (Shape shape : shapes){
-            result += shape.getShapeName() + " ";
+            sb.append(shape.getShapeName()).append(" ");
         }
-        return result;
+        return sb.toString().trim();
     }
 }
