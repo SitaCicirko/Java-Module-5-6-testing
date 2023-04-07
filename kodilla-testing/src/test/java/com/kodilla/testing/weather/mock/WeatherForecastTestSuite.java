@@ -27,12 +27,28 @@ class WeatherForecastTestSuite {                                                
         temperaturesMap.put("Warszawa", 25.2);                                     // [18]
         temperaturesMap.put("Gdansk", 26.1);                                       // [19]
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);      // [20]
-        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);   // [21]
-
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
         //When
-        int quantityOfSensors = weatherForecast.calculateForecast().size();        // [22]
-
+        int quantityOfSensors = weatherForecast.calculateForecast().size();
         //Then
-        Assertions.assertEquals(5, quantityOfSensors);                             // [23]
-    }                                                                             // [24]
+        Assertions.assertEquals(5, quantityOfSensors);
+    }
+    @Test
+    void testAverageTemperature() {
+        //Given
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        //When
+        double average = weatherForecast.AverageTemperature();
+        //Then
+        Assertions.assertEquals(25.56, average, 0.01);
+    }
+    @Test
+    void testMedianTemperature() {
+        //Given
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        //When
+        double median = weatherForecast.MedianTemperature();
+        //Then
+        Assertions.assertEquals(25.5, median, 0.01);
+    }
 }
